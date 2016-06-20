@@ -1,1 +1,9 @@
 http://blog.csdn.net/zoutongyuan/article/details/41379851/
+
+问题：
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
+
+[WARN ] 2016-06-20 17:58:27 DispatcherServlet@(DispatcherServlet.java:1147):No mapping found for HTTP request with URI [/SpringDemo/] in DispatcherServlet with name 'dispatcher'
