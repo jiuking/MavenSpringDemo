@@ -6,12 +6,17 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">  
       
        <description>apache shiro配置</description>  
-      
+       <bean id="simplePermFilter" class="com.hjc.springdemo.security.PermissionsAuthorizationFilter"/>
        <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
             <property name="securityManager" ref="securityManager"/>  
             <property name="loginUrl" value="/rest/page/login"/>  
             <property name="successUrl" value="/rest/index"/>  
             <property name="unauthorizedUrl" value="/rest/page/401"/>  
+            <property name="filters">    
+	            <map>    
+	               <entry key="sperm" value-ref="simplePermFilter"/>  
+	            </map>    
+       		</property>
             <property name="filterChainDefinitions">  
                 <value>  
                     <!-- 静态资源允许访问 -->  
@@ -40,16 +45,16 @@
       
         <!-- 安全管理器 -->  
         <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
-            <!-- <property name="realms">  
+            <property name="realms">  
                 <list>  
                     <ref bean="securityRealm"/>  
                 </list>  
-            </property>  --> 
+            </property> 
             <!-- cacheManager,集合spring缓存工厂 -->  
-            <!-- <property name="cacheManager" ref="shiroEhcacheManager" /> -->  
-            <!-- <property name="sessionManager" ref="sessionManager" /> -->  
+            <property name="cacheManager" ref="shiroEhcacheManager" />  
+            <property name="sessionManager" ref="sessionManager" /> 
         </bean>  
-      
+        <bean id="securityRealm" class="com.hjc.springdemo.security.MonitorRealm"/>
         <!-- Shiro生命周期处理器 -->  
         <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  
       
