@@ -48,7 +48,15 @@ var Login = function () {
 	            },
 
 	            submitHandler: function (form) {
-	                window.location.href = "index.html";
+	            	$.ajax({
+	   	             type: "post",
+	   	             url: "../page/index",
+	   	             data: {username:"", content:""},
+	   	             dataType: "html",
+	   	             success: function(data){
+	   	                 $(".content").html(data);
+	   	             }
+	   	         });
 	            }
 	        });
 
