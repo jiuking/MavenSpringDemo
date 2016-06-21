@@ -11,7 +11,7 @@ public class LoginController {
 	@RequestMapping(value="/login")
 	public ModelAndView toIndex(){
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/index");
+		mv.setViewName("/page/login");
 		return mv;
 	}
 }

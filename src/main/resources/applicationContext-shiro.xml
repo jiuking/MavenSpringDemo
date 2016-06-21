@@ -19,13 +19,13 @@
        		</property>
             <property name="filterChainDefinitions">  
                 <value>  
-                    <!-- 静态资源允许访问 -->  
-                    /app/** = anon  
-                    /assets/** = anon  
+                    <!-- 静态资源允许访问 --> 
+                    /resource/** = anon 
+                    /resource/image/logo-big.png = anon
                     <!-- 登录页允许访问 -->  
                     /rest/user/login = anon  
                     <!-- 其他资源需要认证 -->  
-                    /** = authc  
+                    /** = authc 
                 </value>  
             </property>  
         </bean>  
