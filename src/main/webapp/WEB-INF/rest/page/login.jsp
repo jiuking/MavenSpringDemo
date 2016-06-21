@@ -14,6 +14,7 @@
 	<meta content="" name="description">
 	<meta content="" name="author">
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link href="${pageScope.basePath}/resource/css/select2_metro.css" rel="stylesheet" type="text/css">
 	<link href="${pageScope.basePath}/resource/css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="${pageScope.basePath}/resource/css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
 	<link href="${pageScope.basePath}/resource/css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -26,7 +27,7 @@
 	<!-- BEGIN PAGE LEVEL STYLES -->
 	<link href="${pageScope.basePath}/resource/css/login.css" rel="stylesheet" type="text/css">
 	<!-- END PAGE LEVEL STYLES -->
-	<link rel="shortcut icon" href="http://www.phpddt.com/demo/metronic/media/image/favicon.ico">
+	<!-- <link rel="shortcut icon" href="http://www.phpddt.com/demo/metronic/media/image/favicon.ico"> -->
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -68,7 +69,7 @@
 				<label class="checkbox">
 				<div class="checker"><span><input name="remember" value="1" type="checkbox"></span></div> Remember me
 				</label>
-				<button type="submit" class="btn green pull-right">
+				<button type="button" id="loginButton" class="btn green pull-right">
 				Login <i class="m-icon-swapright m-icon-white"></i>
 				</button>            
 			</div>
@@ -162,7 +163,7 @@
 				<button id="register-back-btn" type="button" class="btn">
 				<i class="m-icon-swapleft"></i>  Back
 				</button>
-				<button type="submit" id="register-submit-btn" class="btn green pull-right">
+				<button type="button" id="register-submit-btn" class="btn green pull-right">
 				Sign Up <i class="m-icon-swapright m-icon-white"></i>
 				</button>            
 			</div>
@@ -174,10 +175,8 @@
 	<div class="copyright">
 		2013 © Metronic. Admin Dashboard Template.
 	</div>
-	<!-- END COPYRIGHT -->
-	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-	<!-- BEGIN CORE PLUGINS -->
-	<script src="${pageScope.basePath}/resource/scripts/dc.js" async="" type="text/javascript"></script>
+	
+	<script src="${pageScope.basePath}/resource/scripts/dc.js"  type="text/javascript"></script>
 	<script src="${pageScope.basePath}/resource/scripts/jquery-1.js" type="text/javascript"></script>
 	<script src="${pageScope.basePath}/resource/scripts/jquery-migrate-1.js" type="text/javascript"></script>
 	<script src="${pageScope.basePath}/resource/scripts/jquery-ui-1.js" type="text/javascript"></script>      
@@ -200,7 +199,21 @@
 		  Login.init();
 		});
 	</script>
+	<script>
+		$("#loginButton").click(function(){
+			$.ajax({
+	             type: "post",
+	             url: "${pageScope.basePath}/rest/page/index",
+	             data: {username:"", content:""},
+	             dataType: "html",
+	             success: function(data){
+	                 console.log(data)
+	                 $(".login").html(data);
+	             }
+	         });
+	    });
+	</script>
 	<!-- END JAVASCRIPTS -->
-<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script>
-
+<!-- <script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script>
+ -->
 </body><!-- END BODY --></html>

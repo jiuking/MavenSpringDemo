@@ -9,9 +9,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
 	@RequestMapping(value="/login")
-	public ModelAndView toIndex(){
+	public ModelAndView toLogin(){
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/page/login");
+		return mv;
+	}
+	
+	@RequestMapping(value="/index")
+	public ModelAndView toIndex(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/page/401");
 		return mv;
 	}
 }
