@@ -10,6 +10,7 @@ public class LoginController {
 
 	@RequestMapping(value="/login")
 	public ModelAndView toLogin(){
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/page/login");
 		return mv;
