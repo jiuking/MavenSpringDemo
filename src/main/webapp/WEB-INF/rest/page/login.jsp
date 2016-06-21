@@ -69,7 +69,7 @@
 				<label class="checkbox">
 				<div class="checker"><span><input name="remember" value="1" type="checkbox"></span></div> Remember me
 				</label>
-				<button type="button" id="loginButton" class="btn green pull-right">
+				<button type="submit" class="btn green pull-right">
 				Login <i class="m-icon-swapright m-icon-white"></i>
 				</button>            
 			</div>
@@ -163,7 +163,7 @@
 				<button id="register-back-btn" type="button" class="btn">
 				<i class="m-icon-swapleft"></i>  Back
 				</button>
-				<button type="button" id="register-submit-btn" class="btn green pull-right">
+				<button type="submit" id="register-submit-btn" class="btn green pull-right">
 				Sign Up <i class="m-icon-swapright m-icon-white"></i>
 				</button>            
 			</div>
@@ -207,7 +207,7 @@
 	             data: {username:"", content:""},
 	             dataType: "html",
 	             success: function(data){
-	                 $(".login").html(data);
+	                 $(".content").html(data);
 	             }
 	         });
 	    });
