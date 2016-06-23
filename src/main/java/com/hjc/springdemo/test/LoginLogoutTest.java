@@ -1,9 +1,17 @@
 package com.hjc.springdemo.test;
 
+import org.apache.http.auth.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.config.IniSecurityManagerFactory;
+import org.apache.shiro.subject.Subject;
+
+import junit.framework.Assert;
+
 public class LoginLogoutTest {
 
 	@Test
 	public void testHelloworld() {
+		Subject subject ;
 	//1、获取 SecurityManager 工厂,此处使用 Ini 配置文件初始化 SecurityManager Factory<org.apache.shiro.mgt.SecurityManager> factory =
 	new IniSecurityManagerFactory("classpath:shiro.ini");
 	//2、得到 SecurityManager 实例 并绑定给 SecurityUtils org.apache.shiro.mgt.SecurityManager securityManager = factory.getInstance(); SecurityUtils.setSecurityManager(securityManager);
